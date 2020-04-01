@@ -16,12 +16,18 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<azure.version>2.2.0</azure.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
 
 		<dependency>
@@ -35,7 +41,37 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>spring-azure-starter-storage</artifactId>
+			<version>1.0.0.M2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure</artifactId>
+			<version>1.32.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.1</version>
+		</dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-spring-boot-bom</artifactId>
+				<version>${azure.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
